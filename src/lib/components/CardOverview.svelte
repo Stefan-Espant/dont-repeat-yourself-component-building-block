@@ -199,10 +199,6 @@
         width: clamp(8rem, 100%, 10rem);
     }
 
-    .list-overview ul li:last-child {
-        border-bottom: unset;
-    }
-
     /* Inhoud met wensen in rasterweergave */
     .grid-overview ul {
         display: grid;
