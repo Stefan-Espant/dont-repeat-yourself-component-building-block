@@ -25,12 +25,43 @@
 }
 
 /* Globale standaard instellingen */
+@import url('static/fonts/poppins-bold.ttf');
 
+@font-face {
+    font-family: "Poppins Bold";
+    font-style: normal;
+    font-weight: 700;
+    src:  local("Poppins Bold") 
+          url(static/fonts/poppins-bold.ttf) format("truetype");
+  }
+
+/* Typografie */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Poppins, sans-serif;
+}
+
+h3 {
+    max-width: 20rem;
+}
+
+/* Layout */
+li {
+    list-style: none;
+}
 
 /* Interactief */
+a {
+    width: fit-content;
+    text-decoration: none;
+    color: unset;
+}
 
 button {
     background-color: unset;
     border: none;
     cursor: pointer;
+}
+
+a:focus-visible, button:focus-visible {
+    outline: none;
 }

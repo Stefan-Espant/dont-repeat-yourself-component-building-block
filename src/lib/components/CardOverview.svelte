@@ -1,4 +1,23 @@
 <script>
+    import { onMount } from 'svelte';
+
+    onMount(() => {
+        const listSwitch = document.querySelector('#listSwitch');
+        const gridSwitch = document.querySelector('#gridSwitch');
+        const customView = document.querySelector('#custom-view');
+
+        listSwitch.addEventListener('click', () => {
+            customView.classList.remove('grid-overview');
+            customView.classList.add('list-overview');
+        });
+
+        gridSwitch.addEventListener('click', () => {
+            customView.classList.remove('list-overview');
+            customView.classList.add('grid-overview');
+        });
+
+    });
+
     export let data
     console.log('Data:', data);
 </script>
@@ -7,7 +26,7 @@
 	<nav>
 		<!-- Weergave van layout voor wensen -->
 		<div class="layout-view">
-			<button>
+			<button id="listSwitch">
 				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" fill="none"
 					><rect width="24" height="4" x="8" fill="" rx="2" /><rect
 						width="6"
@@ -28,7 +47,7 @@
 						rx="2"
 					/></svg>
 			</button>
-			<button>
+			<button id="gridSwitch">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
 					><rect width="4" height="4" fill="" rx="2" /><rect
 						width="4"
@@ -90,29 +109,39 @@
 			</svg>
 		</div> -->
 	</nav>
-	<article class="list-overview">
-        <ul>
+	<article id="custom-view" class="grid-overview">
         {#if data && data.wishes && data.wishes.length > 0}
             <ul>
                 {#each data.wishes as wish}
                     <li>
                         <img src={wish.image.url} alt="Afbeelding van {wish.heading}" />
-                        <h3>{wish.heading}</h3>
+                        <a href="/">
+                            <h3>{wish.heading}</h3>
+                        </a>
                     </li>
                 {/each}
             </ul>
         {:else}
             <p>Geen wensen gevonden.</p>
         {/if}
-        </ul>
     </article>
 </section>
 
 <style>
 	/* Header */
 	section {
+        max-width: 700px;
+        margin: 0 auto;
 		padding: var(--unit-default);
 	}
+
+    img {
+        width: clamp(10rem, 100%, 12rem);
+        height: auto;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: var(--unit-micro);
+    }
 
     article, nav {
 		background-color: var(--color-secundary);
@@ -145,12 +174,16 @@
         fill: var( --color-primary-50);
     }
 
-    nav .layout-view button:hover {
+    nav .layout-view button:is(:hover, :focus) {
         background-color: var(--color-blue);
     }
 
-    nav .layout-view button:hover svg {
+    nav .layout-view button:is(:hover, :focus) svg {
         fill: var(--color-secundary);
+    }
+
+    nav .layout-view button:active {
+        background-color: var(--color-accent-100);
     }
 
 	nav div:nth-child(2) {
@@ -158,19 +191,58 @@
 		align-items: center;
 	}
 
-    /* Inhoud met wensen */
-
-    article ul li
-
-    img {
-        width: 15rem;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-        
+    /* Inhoud met wensen in lijstweergave */
+    .list-overview ul li {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: var(--unit-large);
+        padding: var(--unit-default);
+        margin-bottom: var(--unit-default);
+        border-bottom: 2px solid var(--color-accent-75);
     }
 
-    .list-overview ul li {
-        display: flex;
-        align-items: center;
+    .list-overview ul li:last-child {
+        border-bottom: unset;
+    }
+
+    /* Inhoud met wensen in rasterweergave */
+    .grid-overview ul {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .grid-overview ul li {
+        padding: var(--unit-default);
+        margin-bottom: var(--unit-default);
+    }
+
+    .grid-overview ul li img {
+        margin-bottom: var(--unit-small);
+    }
+
+    .grid-overview ul li h3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    @media (min-width: 440px) {
+        .grid-overview ul {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (min-width: 500px) {
+        .list-overview ul li {
+            grid-template-columns: 12rem 1fr;
+        }   
+    }
+
+    @media (min-width: 628px) {
+        .grid-overview ul {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 </style>
