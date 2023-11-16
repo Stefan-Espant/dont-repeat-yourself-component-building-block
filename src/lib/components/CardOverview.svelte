@@ -90,7 +90,7 @@
                 {#each data.wishes as wish}
                     <li>
                         <img src={wish.image.url} alt="Afbeelding van {wish.heading}" />
-                        <a href="/">
+                        <a href="/contact">
                             <h3>{wish.heading}</h3>
                         </a>
                     </li>
@@ -118,7 +118,7 @@
         border-radius: var(--unit-micro);
     }
 
-    article, nav {
+    li {
 		background-color: var(--color-secundary);
 		border: 2px solid var(--color-accent-75);
 		border-radius: var(--unit-small);
@@ -130,6 +130,10 @@
 		flex-direction: row;
 		justify-content: space-between;
         margin-bottom: var(--unit-default);
+        background-color: var(--color-secundary);
+		border: 2px solid var(--color-accent-75);
+		border-radius: var(--unit-small);
+        padding: var(--unit-small);
 	}
 
 	nav div {
@@ -197,11 +201,15 @@
     .grid-overview ul {
         display: grid;
         grid-template-columns: 1fr;
+        gap: var(--unit-default);
     }
 
     .grid-overview ul li {
         padding: var(--unit-default);
-        margin-bottom: var(--unit-default);
+        background-color: var(--color-secundary);
+		border: 2px solid var(--color-accent-75);
+		border-radius: var(--unit-small);
+        padding: var(--unit-small);
     }
 
     .grid-overview ul li img {
