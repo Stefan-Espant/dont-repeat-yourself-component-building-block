@@ -68,3 +68,12 @@ button {
 a:focus-visible, button:focus-visible {
     outline: none;
 }
+
+/* Zichtbaarheids instelling */
+.javascriptEnabled .layout-view {
+    display: block;
+}
+
+.visible {
+    visibility: visible;
+}

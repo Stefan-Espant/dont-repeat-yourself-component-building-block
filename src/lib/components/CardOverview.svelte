@@ -2,9 +2,13 @@
     import { onMount } from 'svelte';
 
     onMount(() => {
+        document.documentElement.classList.add("javascriptEnabled");
+
         const listSwitch = document.querySelector('#listSwitch');
         const gridSwitch = document.querySelector('#gridSwitch');
         const customView = document.querySelector('#custom-view');
+
+        const layoutView = document.querySelector('.layout-view')
 
         listSwitch.addEventListener('click', () => {
             customView.classList.remove('grid-overview');
@@ -126,7 +130,7 @@
     }
 
 	nav {
-		display: flex;
+		display: none;
 		flex-direction: row;
 		justify-content: space-between;
         margin-bottom: var(--unit-default);
@@ -141,6 +145,8 @@
 		flex-direction: row;
 		gap: var(--unit-small);
 	}
+
+    
 
     /* Layout button instellingen */
     nav .layout-view button {
@@ -248,5 +254,10 @@
         .grid-overview ul {
             grid-template-columns: 1fr 1fr 1fr;
         }
+    }
+
+    /* Zichtbaarheids instelling */
+    .javascriptEnabled section nav{
+        display: flex;
     }
 </style>
