@@ -190,7 +190,7 @@
         grid-template-columns: 1fr;
         align-items: center;
         gap: var(--unit-large);
-        padding: var(--unit-default);
+        padding: var(--unit-small);
         margin-bottom: var(--unit-default);
         border-bottom: 2px solid var(--color-accent-75);
     }
