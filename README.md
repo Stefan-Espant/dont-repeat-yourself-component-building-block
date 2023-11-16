@@ -1,4 +1,7 @@
-# create-svelte
+# Hallo Strandeiland - Card layout
+
+![Uploading Schermafbeelding 2023-11-16 om 21.17.11.png…]()
+
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
