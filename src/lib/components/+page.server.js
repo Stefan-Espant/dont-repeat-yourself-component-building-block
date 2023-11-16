@@ -17,16 +17,7 @@ export async function load() {
     }
   `;
 
-  try {
-    const request = await hygraph.request(query);
-    return {
-      data: request,  // Zorg ervoor dat je het resultaat op de juiste manier doorgeeft
-    };
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return {
-      status: 500,
-      error: new Error('Error fetching data'), // Pas dit aan op basis van je behoeften
-    };
-  }
+  const request = await hygraph.request(query);
+
+  return request
 }

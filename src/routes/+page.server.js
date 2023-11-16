@@ -1,4 +1,3 @@
-// page.server.js
 import { gql } from 'graphql-request';
 import { hygraph } from '$lib/utils/hygraph.js';
 
@@ -20,9 +19,5 @@ export async function load() {
 
   const request = await hygraph.request(query);
 
-  return {
-    props: {
-      data: request,
-    },
-  };
+  return request
 }

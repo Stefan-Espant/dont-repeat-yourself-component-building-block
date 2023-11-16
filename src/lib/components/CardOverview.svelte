@@ -1,5 +1,6 @@
 <script>
     export let data
+    console.log('Data:', data);
 </script>
 
 <section>
@@ -89,16 +90,19 @@
 			</svg>
 		</div> -->
 	</nav>
-	<article>
+	<article class="list-overview">
         <ul>
-        {#if data && data.wishes}
-            {#each data.wishes as wish}
-                <li>
-                    <h3>{wish.heading}</h3>
-                </li>
-            {/each}
+        {#if data && data.wishes && data.wishes.length > 0}
+            <ul>
+                {#each data.wishes as wish}
+                    <li>
+                        <img src={wish.image.url} alt="Afbeelding van {wish.heading}" />
+                        <h3>{wish.heading}</h3>
+                    </li>
+                {/each}
+            </ul>
         {:else}
-            <p>Geen wensen beschikbaar</p>
+            <p>Geen wensen gevonden.</p>
         {/if}
         </ul>
     </article>
@@ -153,4 +157,20 @@
 		gap: var(--unit-small);
 		align-items: center;
 	}
+
+    /* Inhoud met wensen */
+
+    article ul li
+
+    img {
+        width: 15rem;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        
+    }
+
+    .list-overview ul li {
+        display: flex;
+        align-items: center;
+    }
 </style>
