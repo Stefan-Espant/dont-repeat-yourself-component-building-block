@@ -46,36 +46,11 @@
 						fill=""
 						rx="2"
 					/></svg>
+                    <span>Schakel over op lijstweergave</span>
 			</button>
 			<button id="gridSwitch">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-					><rect width="4" height="4" fill="" rx="2" /><rect
-						width="4"
-						height="4"
-						x="10"
-						fill=""
-						rx="2"
-					/><rect width="4" height="4" x="20" fill="" rx="2" /><rect
-						width="4"
-						height="4"
-						y="10"
-						fill=""
-						rx="2"
-					/><rect width="4" height="4" x="10" y="10" fill="" rx="2" /><rect
-						width="4"
-						height="4"
-						x="20"
-						y="10"
-						fill=""
-						rx="2"
-					/><rect width="4" height="4" y="20" fill="" rx="2" /><rect
-						width="4"
-						height="4"
-						x="10"
-						y="20"
-						fill=""
-						rx="2"
-					/><rect width="4" height="4" x="20" y="20" fill="" rx="2" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none"><path fill="" fill-rule="evenodd" d="M3.429 0H8.57A3.429 3.429 0 0 1 12 3.429V8.57A3.429 3.429 0 0 1 8.571 12H3.43A3.429 3.429 0 0 1 0 8.571V3.43A3.429 3.429 0 0 1 3.429 0Zm0 2.571a.857.857 0 0 0-.858.858V8.57c0 .474.384.858.858.858H8.57a.857.857 0 0 0 .858-.858V3.43a.857.857 0 0 0-.858-.858H3.43ZM17.429 0h5.142A3.429 3.429 0 0 1 26 3.429V8.57A3.429 3.429 0 0 1 22.571 12H17.43A3.429 3.429 0 0 1 14 8.571V3.43A3.429 3.429 0 0 1 17.429 0Zm0 2.571a.857.857 0 0 0-.858.858V8.57c0 .474.384.858.858.858h5.142a.857.857 0 0 0 .858-.858V3.43a.857.857 0 0 0-.858-.858H17.43ZM3.429 14H8.57A3.429 3.429 0 0 1 12 17.429v5.142A3.429 3.429 0 0 1 8.571 26H3.43A3.429 3.429 0 0 1 0 22.571V17.43A3.429 3.429 0 0 1 3.429 14Zm0 2.571a.857.857 0 0 0-.858.858v5.142c0 .474.384.858.858.858H8.57a.857.857 0 0 0 .858-.858V17.43a.857.857 0 0 0-.858-.858H3.43ZM17.429 14h5.142A3.429 3.429 0 0 1 26 17.429v5.142A3.429 3.429 0 0 1 22.571 26H17.43A3.429 3.429 0 0 1 14 22.571V17.43A3.429 3.429 0 0 1 17.429 14Zm0 2.571a.857.857 0 0 0-.858.858v5.142c0 .474.384.858.858.858h5.142a.857.857 0 0 0 .858-.858V17.43a.857.857 0 0 0-.858-.858H17.43Z" clip-rule="evenodd"/></svg>
+                    <span hidden>Schakel over op rasterweergave</span>
 			</button>
 		</div>
 
@@ -136,7 +111,7 @@
 	}
 
     img {
-        width: clamp(10rem, 100%, 12rem);
+        width: clamp(10rem, 100%, 12rem);   
         height: auto;
         aspect-ratio: 1/1;
         object-fit: cover;
@@ -186,6 +161,14 @@
         background-color: var(--color-accent-100);
     }
 
+    nav .layout-view button span {
+        opacity: 0;
+        width: 0px;
+        height: 0;
+        overflow: hidden;
+        display: block;
+    }
+
 	nav div:nth-child(2) {
 		gap: var(--unit-small);
 		align-items: center;
@@ -200,6 +183,10 @@
         padding: var(--unit-default);
         margin-bottom: var(--unit-default);
         border-bottom: 2px solid var(--color-accent-75);
+    }
+
+    .list-overview ul li img {
+        width: clamp(8rem, 100%, 10rem);
     }
 
     .list-overview ul li:last-child {
@@ -221,11 +208,20 @@
         margin-bottom: var(--unit-small);
     }
 
-    .grid-overview ul li h3 {
+    ul li a h3 {
         overflow: hidden;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
+        transition: var(--animation-default) ease-in-out;
+    }
+
+    ul li a:is(:hover, :focus) h3 {
+        color: var(--color-blue);
+    }
+
+    #custom-view {
+        transition: var(--animation-default) ease-in-out;
     }
 
     @media (min-width: 440px) {

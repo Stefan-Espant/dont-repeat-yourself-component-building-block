@@ -25,23 +25,26 @@
 }
 
 /* Globale standaard instellingen */
-@import url('static/fonts/poppins-bold.ttf');
+@import url('../static/fonts/poppins-bold.ttf');
 
 @font-face {
     font-family: "Poppins Bold";
     font-style: normal;
     font-weight: 700;
-    src:  local("Poppins Bold") 
-          url(static/fonts/poppins-bold.ttf) format("truetype");
+    src:    url('../static/fonts/poppins-bold.ttf') 
+            format("truetype");
   }
 
 /* Typografie */
 h1, h2, h3, h4, h5, h6 {
     font-family: Poppins, sans-serif;
+    color: var(--color-primary-50)
 }
 
 h3 {
     max-width: 20rem;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 /* Layout */
@@ -60,8 +63,4 @@ button {
     background-color: unset;
     border: none;
     cursor: pointer;
-}
-
-a:focus-visible, button:focus-visible {
-    outline: none;
 }
