@@ -1,7 +1,6 @@
 # Hallo Strandeiland - Card layout
 
-![Uploading Schermafbeelding 2023-11-16 om 21.17.11.png…]()
-
+<img width="1504" alt="Schermafbeelding 2023-11-16 om 21 17 11" src="https://github.com/Stefan-Espant/dont-repeat-yourself-component-building-block/assets/89298385/eca2e526-86ec-495c-a52e-498841e2d635">
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
